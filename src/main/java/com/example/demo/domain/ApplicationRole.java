@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class ApplicationRole {
 	@Id
 	@Column(name="role_uuid")
-	@JsonProperty(access = Access.READ_ONLY)
+	//@JsonProperty(access = Access.READ_ONLY)
 	private UUID role_uuid=UUID.randomUUID();
 	@Column(name="roleName")
 	private String roleName;

@@ -22,6 +22,14 @@ CREATE TABLE application_user_roles (
   foreign key(role_uuid) references application_roles(role_uuid)
 );
 
+CREATE TABLE user_resolutions (
+  res_uuid uuid,
+  resolution varchar(256),
+  fk_uid uuid,
+  primary key(resolution ,fk_uid),
+  foreign key(fk_uid) references application_users(user_uuid)
+);
+
 select * from application_users;
 select * from application_roles;
 select * from application_user_roles;

@@ -34,9 +34,10 @@ public class DemoApplication extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/h2-console/**").permitAll().antMatchers("/health/**")
+		http.csrf().disable().authorizeRequests().antMatchers("/h2-console/**").permitAll().antMatchers("**/health/**")
 				.permitAll().antMatchers("**/swagger-ui*/**").permitAll().antMatchers(HttpMethod.POST,"**/simple*/**")
-				.hasAuthority("readwrite").antMatchers(HttpMethod.PUT,"**/simple*/**").hasAuthority("readwrite").antMatchers(HttpMethod.POST)
+				.hasAuthority(
+						"readwrite").antMatchers(HttpMethod.PUT,"**/simple*/**").hasAuthority("readwrite").antMatchers(HttpMethod.POST)
 				.hasAuthority("admin").antMatchers(HttpMethod.PUT).hasAuthority("admin").anyRequest()
 				.hasAuthority("readonly").and().httpBasic();
 		http.headers().frameOptions().disable();

@@ -26,7 +26,7 @@ public class ApplicationUser {
 
 	@Id
 	@Column(name="user_uuid")
-	@JsonProperty(access = Access.READ_ONLY)
+	//@JsonProperty(access = Access.READ_ONLY)
 	private UUID user_uuid=UUID.randomUUID();
 	@Column(name="userName")
 	private String userName;
